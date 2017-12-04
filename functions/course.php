@@ -1,5 +1,5 @@
 <?php
-
+// get all the courses
 function getAllCrs(){
     include "$_SERVER[DOCUMENT_ROOT]/project/config.php";
 
@@ -16,7 +16,7 @@ function getAllCrs(){
       
 }
 
-
+// add course
 function addCrs($crs_id, $crs_title, $crs_code, $credit_hrs, $contact_hrs, $dept_id, $semster){
     
     include "$_SERVER[DOCUMENT_ROOT]/project/config.php";
@@ -39,7 +39,7 @@ function addCrs($crs_id, $crs_title, $crs_code, $credit_hrs, $contact_hrs, $dept
     
     
 }
-
+// get course by course ID 
 function getCrs($crs_id){
     
     include "$_SERVER[DOCUMENT_ROOT]/project/config.php";
@@ -56,7 +56,7 @@ function getCrs($crs_id){
     
 }
 
-
+// update course
 function updateCrs($crs_id, $crs_title, $crs_code, $credit_hrs, $contact_hrs, $dept_id, $semster){
     
     include "$_SERVER[DOCUMENT_ROOT]/project/config.php";
@@ -80,6 +80,7 @@ function updateCrs($crs_id, $crs_title, $crs_code, $credit_hrs, $contact_hrs, $d
     
 }
 
+// delete course
 function deleteCrs($crs_id){
     
     include "$_SERVER[DOCUMENT_ROOT]/project/config.php";
@@ -110,15 +111,11 @@ function displayCrs($user_id){
     die("Connection failed: " . $conn->connect_error);
 } 
     
-    $sql = "SELECT courses_course_ID FROM users_has_courses1 WHERE users_users_ID = '$user_id'";
+    $sql = "SELECT users_has_courses1.users_users_ID, courses.course_title, courses.course_ID FROM users_has_courses1 INNER JOIN courses ON users_has_courses1.courses_course_ID=courses.course_ID WHERE users_has_courses1.users_users_ID='$user_id'";
     $result = $conn->query($sql);
-//    echo $result->num_rows;
     while($row= $result->fetch_assoc()){
     
-    $sql_ = "SELECT course_title FROM courses WHERE course_ID = '".$row['courses_course_ID']."'";
-    $result_ = $conn->query($sql_);
-    $row_= $result_->fetch_assoc();
-    echo $row_['course_title']."</br>";
+    echo $row['course_title']."-".$row['course_ID']."</br>";
 
     }
     

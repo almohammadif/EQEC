@@ -16,9 +16,7 @@ function getRole($user_id){
     
     if($result->num_rows > 1){
         while($row= $result->fetch_assoc()){
-            $i=1;
             $role_id[] = "{$row['roles_role_ID']}";
-            $i++;
         }
         
     }else{
@@ -37,23 +35,17 @@ function displayRole($user_id){
 		if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-    
-    $sql = "SELECT * FROM roles_has_users WHERE users_users_ID = '$user_id'";
+    $sql="SELECT users.*, roles_has_users.roles_role_ID, roles.role_name FROM users INNER JOIN roles_has_users ON users.users_ID=roles_has_users.users_users_ID INNER JOIN roles ON roles_has_users.roles_role_ID=roles.role_ID WHERE users.users_ID='$user_id'";
     $result = $conn->query($sql);
-//    echo $result->num_rows;
     while($row= $result->fetch_assoc()){
-    $role_id = $row['roles_role_ID'];
-    $sql_ = "SELECT role_name FROM roles WHERE role_ID = '".$row['roles_role_ID']."'";
-    $result_ = $conn->query($sql_);
-    $row_= $result_->fetch_assoc();
-    echo $row_['role_name']."</br>";
+    echo $row['role_name']."</br>";
 
     }
-    
-    
+ 
 $conn->close();    
 }
 
+// set role to user by user ID 
 function setRole($user_id, $role_id){
     
     include "$_SERVER[DOCUMENT_ROOT]/project/config.php";
