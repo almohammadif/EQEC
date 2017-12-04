@@ -111,7 +111,7 @@ session_start();
                   if(isset($_POST['crs'])){
                       $crs_id=$_POST['crs'];
                       $count_crs= count($crs_id);
-                      
+                      //add mutliple courses
                       for($i=0; $i<$count_crs; $i++){
                           addCrsToUser($lastuser_id, $crs_id[$i]);
                       }

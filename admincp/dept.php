@@ -43,7 +43,7 @@ session_start();
         
         echo "<tr><td>".$row['dept_ID']."</td><td>".$row['dept_name']."</td><td>
         <a class=' w3-button w3-round-xxlarge  w3-blue' href='edit_dept.php?dept_id=".$row['dept_ID']."'title='Edit'><i class='fa fa-edit' aria-hidden='true'></i></a>
-        <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_dept.php?dept_id=".$row['dept_ID']."' title='Delete'><i class='fa fa-trash' aria-hidden='true'></i></a></td</tr>";
+        <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_dept.php?dept_id=".$row['dept_ID']."' title='Delete'><i class='fa fa-trash' aria-hidden='true'></i></a></td></tr>";
         
         
     }

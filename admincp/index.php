@@ -16,7 +16,7 @@
 	<body style='background-color:#eee; font-family:"Segoe UI"'>
        
         <div class="w3-bar w3-grey w3-padding-small">
-            <img class='w3-img w3-bar-item' src="../../project/img/logo.png" alt="SEU">
+            <img class='w3-img w3-bar-item' src="../../project/img/logo.png" alt="SEU" style="width:400px">
 	<?php
 //Start the session
 session_start();
@@ -24,7 +24,7 @@ session_start();
         // Check user session and user role
         if ($_SESSION['authorized'] = true && $_SESSION['user_role'] == 4){
 	?>
-		<h4 class='w3-bar-item'>Welcome <?php echo $_SESSION['userfname']; ?></h4>		
+		<h6 class='w3-bar-item'>Welcome <?php echo $_SESSION['userfname']; ?></h6>		
     
     <?php
 		}else {
@@ -33,7 +33,7 @@ session_start();
 		 
             
 ?>
-    <a href="../logout.php" class="w3-bar-item w3-right-align w3-right" ><h4><i class="fa fa-power-off fa-lg " aria-hidden="true"></i></h4></a>
+    <a href="../logout.php" class="w3-bar-item w3-right-align w3-right" ><h6><i class="fa fa-power-off fa-lg " aria-hidden="true"></i></h6></a>
 		
 		</div>	
         
@@ -57,18 +57,7 @@ session_start();
 
 
         </div><!-- Container End -->
-<!--
-java script to show and hide menue items 
-        <script>
-function myFunction(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
--->
+
+
     </body>
 </html>

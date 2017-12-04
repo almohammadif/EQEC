@@ -43,13 +43,12 @@ session_start();
     <?php
     include "../functions/users.php";
     include "../functions/course.php";
-    $users = getAllUsers();
-           
+    $users = getAllUsers(); 
     while ($row = mysqli_fetch_assoc($users)){
-        
+       
         echo "<tr><td>".$row['users_ID']."</td><td>".$row['first_name']."</td><td>".$row['last_name']."</td><td>".$row['username']."</td><td>".$row['user_email']."</td><td>";displayRole($row['users_ID']);echo "</td><td>";displayCrs($row['users_ID']); echo "</td><td><img style='width:100%;max-width:200px' src='".$row['user_sign']."'></td><td>
         <a class=' w3-button w3-round-xxlarge  w3-blue' href='edit_user.php?user_id=".$row['users_ID']."'title='Edit'><i class='fa fa-edit' aria-hidden='true'></i></a>
-        <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_user.php?user_id=".$row['users_ID']."' title='Delete'><i class='fa fa-user-times' aria-hidden='true'></i></a></td</tr>";
+        <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_user.php?user_id=".$row['users_ID']."' title='Delete'><i class='fa fa-user-times' aria-hidden='true'></i></a></td></tr>";
         
         
     }

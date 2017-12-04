@@ -48,7 +48,7 @@ session_start();
         
         echo "<tr><td>".$row['course_ID']."</td><td>".$row['course_title']."</td><td>".$row['course_code']."</td><td>".$row['credit_hours']." Hours</td><td>".$row['contact_hours']." Hours</td><td>";echo displayDept($row['dept_dept_ID']);echo "</td><td>".$row['semster']."</td><td>
         <a class=' w3-button w3-round-xxlarge  w3-blue' href='edit_crs.php?crs_id=".$row['course_ID']."'title='Edit'><i class='fa fa-edit' aria-hidden='true'></i></a>
-        <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_crs.php?crs_id=".$row['course_ID']."' title='Delete'><i class='fa fa-trash' aria-hidden='true'></i></a></td</tr>";
+        <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_crs.php?crs_id=".$row['course_ID']."' title='Delete'><i class='fa fa-trash' aria-hidden='true'></i></a></td></tr>";
         
         
     }
