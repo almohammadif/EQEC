@@ -1,8 +1,14 @@
 <?php
 // function to escape data and strip tags
 function safestrip($string){
+     // Connect to DB
+    include "./config.php";
+		// Check connection
+		if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
        $string = strip_tags($string);
-       $string = mysql_real_escape_string($string);
+       $string = mysqli_real_escape_string($conn, $string);
        return $string;
 }
 

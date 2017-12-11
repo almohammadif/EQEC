@@ -44,7 +44,7 @@
 		
         <!-- Page Content -->
         <div class="w3-container w3-center " style="margin-left:10%">
-		<iframe  onload='resizeIframe(this)' name="frame_" scrolling="no"  style="   width:100%; border:none;  " ></iframe>
+		<iframe  onload="resizeIframe(this)" name="frame_" scrolling="yes"  style="   width:100%; border:none;  " ></iframe>
             </div><!-- Page Content End -->
 		<!-- Container End -->	
 		

@@ -29,6 +29,7 @@
         include "$_SERVER[DOCUMENT_ROOT]/project/functions/dept.php";
         include "$_SERVER[DOCUMENT_ROOT]/project/functions/asgn.php";
         include "$_SERVER[DOCUMENT_ROOT]/project/functions/exam.php";
+        include "$_SERVER[DOCUMENT_ROOT]/project/functions/t5.php";
         
 ?>
 		
@@ -110,7 +111,39 @@
                 
                 while($row=mysqli_fetch_assoc($exam)){
                     
-                    echo "<tr><td>".$row['exam_type']."</td><td>".$row['exam_high_grade']."</td><td>".$row['exam_avg_grade']."</td><td>".$row['exam_low_grade']."</td><td><a href='".$row['exam_high_url']."'>".end(explode('/',$row['exam_high_url']))."</td><td><a href='".$row['exam_avg_url']."'>".end(explode('/',$row['exam_avg_url']))."<td><a href='".$row['exam_low_url']."'>".end(explode('/',$row['exam_low_url']))."</td><td>".date("d-M-Y", strtotime($row['exam_date']))."</td><td> <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_exam.php?exam_id=".$row['exam_ID'].'&crs_id='.$crs_id."' title='Delete'><i class='fa fa-times' aria-hidden='true'></i></a></td></tr>";;
+                    echo "<tr><td>".$row['exam_type']."</td><td>".$row['exam_high_grade']."</td><td>".$row['exam_avg_grade']."</td><td>".$row['exam_low_grade']."</td><td><a href='".$row['exam_high_url']."'>".substr($row['exam_high_url'],22)."</td><td><a href='".$row['exam_avg_url']."'>".substr($row['exam_avg_url'],22)."<td><a href='".$row['exam_low_url']."'>".substr($row['exam_low_url'],22)."</td><td>".date("d-M-Y", strtotime($row['exam_date']))."</td><td> <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_exam.php?exam_id=".$row['exam_ID'].'&crs_id='.$crs_id."' title='Delete'><i class='fa fa-times' aria-hidden='true'></i></a></td></tr>";;
+                    
+                    
+                }
+                
+                ?>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </table>
+            
+            
+            <h4 class='w3-left-align'><i class="fa fa-pie-chart fa-lg " aria-hidden="true"></i> T5 Report</h4>
+            <table class="w3-table-all w3-center">
+           <tr>
+           
+            <th>Report Status</th>
+            <th>Report Date</th>
+             
+              <th>Action</th>
+            </tr>
+            <?php
+                $t5 = getT5($_SESSION['user_id'], $crs_id);
+                
+                while($row=mysqli_fetch_assoc($t5)){
+                    
+                    echo "<tr><td><i class='fa fa-check fa-lg w3-text-green' aria-hidden='true'></td><td>".$row['t5_date_report_comp']."</td><td> <a class=' w3-button w3-round-xxlarge w3-blue' id='del'  href='delete_t5.php?report_id=".$row['t5_report_ID']."&crs_id=".$crs_id."' title='Delete'><i class='fa fa-times' aria-hidden='true'></i></a></td></tr>";;
                     
                     
                 }
